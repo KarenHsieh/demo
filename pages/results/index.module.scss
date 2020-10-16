@@ -1,0 +1,24 @@
+.clearfix {
+  clear: both;
+}
+.container {
+  display: flex;
+  width: 1160px;
+  height: auto;
+  //overflow: hidden;
+}
+
+.filters {
+  /* float: left;
+  width: 20%;
+  margin-right: 15px; */
+  display: flex;
+  // flex: 1;
+}​​
+
+.list {
+/*   width: 70%;
+  float: right; */
+  display: flex;
+  /* flex: 2; */
+}
