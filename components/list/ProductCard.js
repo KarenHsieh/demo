@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types';
+import Link from 'next/link';
 import {stats, prods} from './singleData';
-import styles from './ProductCard.module.scss'
+import styles from './ProductCard.module.scss';
 
 
 class ProductCard extends Component {
@@ -16,6 +17,10 @@ class ProductCard extends Component {
         <h5>{data.prod_name}</h5>
         <Content avg_rating_star={data.avg_rating_star} rating_count={data.rating_count} />
         <Price price={price}/>
+        
+        <Link href="/product" as="/product">
+          <a className={styles.detailButton}>購買</a>
+        </Link>
       </div>
     );
   }
@@ -52,7 +57,7 @@ function Price(props) {
   );
 }
 
-PreviewImage.PropTypes = {
+PreviewImage.propTypes = {
   prod_img_url: PropTypes.string,
 }
 

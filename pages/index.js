@@ -21,7 +21,7 @@ export default function Home() {
         </h3>
 
         <h3>
-          <Link href="/results" as="/results/abc">
+          <Link href="/results" as="/results">
             <a className={styles.link}>Go Result Page</a>
           </Link>
         </h3>

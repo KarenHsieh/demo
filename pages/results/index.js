@@ -3,23 +3,25 @@ import ProductCard from '../../components/list/ProductCard'
 import Filters from '../../components/filters/Filters'
 import styles from './index.module.scss'
 
-export default function Results() {
+function Results() {
   // const router = useRouter()
-  // console.log(router);
+
   return (
-    <>
+    <div>
       <h3>This is results/index.js</h3>
       <div className={styles.container} >
         <div className={styles.filters}>
           <Filters />
         </div>
-        <div className={styles.clearfix}></div>
-        <div className={styles.list}>
+        <div className={styles.products}> 
           <ProductCard />
+          <ProductCard />
+          <ProductCard />
+
         </div>
       </div>
 
-    </>
+    </div>
   )
 }
 
@@ -29,3 +31,5 @@ export async function getStaticProps(context) {
     props: {}, // will be passed to the page component as props
   }
 }
+
+export default Results;

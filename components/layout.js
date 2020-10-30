@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import styles from './layout.module.css'
+import styles from './layout.module.scss'
 
 export default function Layout({ children, home }) {
   return (
@@ -11,11 +11,12 @@ export default function Layout({ children, home }) {
             name="description"
             content="Learn how to build a personal website using Next.js"
           />
-          <meta
+{/*           <meta
             property="og:image"
             content={}
-          />
+          /> 
           <meta name="og:title" content={} />
+          */}
         </Head>
       </div>
     </>

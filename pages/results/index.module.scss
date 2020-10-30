@@ -1,24 +1,37 @@
-.clearfix {
-  clear: both;
-}
+
+
+// .productList {
+//   width: 80%;
+//   display: flex;
+//   flex-wrap: wrap;
+  
+//   flex-flow: row wrap;
+// }
+
+
+
 .container {
-  display: flex;
   width: 1160px;
   height: auto;
-  //overflow: hidden;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.filters {
-  /* float: left;
-  width: 20%;
-  margin-right: 15px; */
-  display: flex;
-  // flex: 1;
-}​​
 
-.list {
-/*   width: 70%;
-  float: right; */
-  display: flex;
-  /* flex: 2; */
+.filters {
+  width: 20%;
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+.products {
+  width: 80%;
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
 }
