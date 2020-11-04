@@ -12,6 +12,7 @@ function User({ user }) {
 }
 
 export async function getStaticProps() {
+  console.log('Hello');
   const res = await fetch('https://randomuser.me/api/');
   let data = await res.json(); // 這裡的await很重要! 沒加的話一直報 cannot be serialized as JSON 錯誤
   data = JSON.parse(JSON.stringify(data)).results[0]

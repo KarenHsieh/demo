@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types';
 import Link from 'next/link';
-import {stats, prods} from './singleData';
+// import {stats, prods} from './singleData';
 import styles from './ProductCard.module.scss';
 
 
@@ -9,14 +9,16 @@ class ProductCard extends Component {
   state = {  }
   
   render() {
-    const data = prods[0];
-    const price = stats.price;
+    const product = this.props.product;
+    console.log("ProductCard -> render -> product", product)
+    //const price = stats.price;
     return (
       <div className={styles.card}>
-        <PreviewImage prod_img_url={data.prod_img_url} />
-        <h5>{data.prod_name}</h5>
-        <Content avg_rating_star={data.avg_rating_star} rating_count={data.rating_count} />
-        <Price price={price}/>
+        <PreviewImage prod_img_url={product.imageFile[0]} />
+        <h5>{product.prod_Nm}</h5>
+        <p>{product.prod_No}</p>
+
+        <Price price={product.minMarket_price}/>
         
         <Link href="/product" as="/product">
           <a className={styles.detailButton}>購買</a>
@@ -36,23 +38,11 @@ function PreviewImage(props) {
 }
 
 
-function Content(props) {
-  return (
-    <div>
-      {/* 評價星等 */}
-      <span>星等: {props.avg_rating_star}</span> | 
-      {/* 評價數 */}
-      <span>評價數: {props.rating_count}</span>
-    </div>
-  );
-}
-
 
 function Price(props) {
   return (
     <>
-      <div>最低價{props.price.min}</div>
-      <div>最高價{props.price.max}</div>
+      <div>價錢{props.price}</div>
     </>
   );
 }
