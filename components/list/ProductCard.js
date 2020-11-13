@@ -5,6 +5,23 @@ import Link from 'next/link';
 import styles from './ProductCard.module.scss';
 
 
+import { withStyles } from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
+
+
+const ColorButton = withStyles((theme) => ({
+  root: {
+    color: '#FFF',
+    backgroundColor: '#55d040',
+    '&:hover': {
+      backgroundColor: '#119d36',
+      border: 'solid 1px #119d36',
+      color: '#ffffff'
+    }
+  },
+}))(Button);
+
+
 class ProductCard extends Component {
   state = {  }
   
@@ -21,8 +38,9 @@ class ProductCard extends Component {
         <Price price={product.minMarket_price}/>
         
         <Link href="/product" as="/product">
-          <a className={styles.detailButton}>購買</a>
+          <ColorButton>購買</ColorButton>
         </Link>
+        
       </div>
     );
   }

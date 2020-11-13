@@ -1,7 +1,9 @@
 import Head from 'next/head'
 import styles from './layout.module.scss'
 
+
 export default function Layout({ children, home }) {
+  const classes = useStyles();
   return (
     <>
       <div>
@@ -18,6 +20,7 @@ export default function Layout({ children, home }) {
           <meta name="og:title" content={} />
           */}
         </Head>
+
       </div>
     </>
   )

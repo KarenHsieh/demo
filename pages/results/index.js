@@ -1,11 +1,19 @@
 
 import ProductCard from '../../components/list/ProductCard'
+import OtherCard from '../../components/list/OtherCard'
 import Filters from '../../components/filters/Filters'
 
+import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 
-import styles from './index.module.scss'
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
+import IconButton from '@material-ui/core/IconButton';
+// import MenuIcon from '@material-ui/icons/Menu';
+import Pagination from '@material-ui/lab/Pagination';
+
 import tempProduct from './temp'
 
 
@@ -17,46 +25,64 @@ const fullPath = path.join(resultPath, 'temp.json')
 console.log('fullPath = ' + fullPath); 
 */
 
+const useStyles = makeStyles({
+  root: {
+    flexGrow: 1,
+  },
+  bar: {
+    flexGrow: 1,
+    marginBottom: '50px'
+  },
+  pagination: {
+    margin: '15px 0',
+    textAlign: 'center'
+  }
+});
+
 function Results() {
-//function Results({data}) {
-  // console.log(data)
+  const classes = useStyles();
 
   const list = tempProduct.prodList.map(function(item){
     return(
-      <ProductCard product={item}/>
+      <Grid key={item.prod_No} item lg={4}>
+        <OtherCard key={item.prod_No} product={item} />
+      </Grid>
     );
   });
 
   return (
     <div>
-      <Container>
-        <Grid container spacing={3}>
-          <Grid item lg={3}>
-            <Filters />
-          </Grid>
-          <Grid item lg={9}>
-            { list }
+      <div className={classes.bar}>
+        <AppBar position="static">
+          <Toolbar variant="dense">
+            <Typography variant="h6" color="inherit">
+              Photos
+            </Typography>
+          </Toolbar>
+        </AppBar>
+      </div>
+
+      <Container maxWidth='lg'>
+        <div className={classes.root}>
+          <Grid container spacing={3}>
+            <Grid item lg={3}>
+              <Filters />
             </Grid>
-        </Grid>
+            <Grid item lg={9}>
+              <Grid container spacing={2}>
+                { list }
+              </Grid>
+              <Grid container className={classes.pagination}>
+                <Pagination count={10} variant="outlined" shape="rounded" />
+              </Grid> 
+            </Grid>
+          </Grid>
+        </div>
       </Container>
     </div>
   )
 }
 
-/* return (
-  <div>
-    <Container>
-    <div className={styles.container} >
-      <div className={styles.filters}>
-        <Filters />
-      </div>
-      <div className={styles.products}>
-        { list }
-      </div>
-    </div>
-    </Container>
-  </div>
-) */
 
 /* export async function getServerSideProps(context) {
 
