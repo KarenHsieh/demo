@@ -1,3 +1,5 @@
+> 閱讀「優雅串接 React & Redux」的筆記
+
 <h2>1. Create mapStateToProps and connect</h2>
 
 ```js
@@ -73,15 +75,15 @@ action裡封裝的邏輯太複雜的話，就要使用 Redux Thunk 等的中介�
 ```js
 function reducer( state = initialState, action) {
 	if ( action.type == 'INCREMENT' ) {
-	return {
-	count: state.count + 1
-}
-} else if ( action.type == 'DECREMENT' ) {
-return {
-	count: state.count - 1
-}
-}
-return state;
+    return {
+      count: state.count + 1
+    }
+  } else if ( action.type == 'DECREMENT' ) {
+    return {
+      count: state.count - 1
+    }
+  }
+  return state;
 }
 ```
 <hr>
@@ -96,7 +98,7 @@ props 所以就可以在觸發的事件function裡這樣觸發action
 
 ```js
 increment = () => {
-    this.props.dispatch({ type: 'INCREMENT' });
+  this.props.dispatch({ type: 'INCREMENT' });
 }
 ```
 <hr>
@@ -238,3 +240,7 @@ class Counter extends React.Component {
 }
 
 ```
+
+<h2>10. Connect 的工作原理</h2>
+
+Connect 元件從 context 中拿到 Provider 的 store，然後再從store裡拿到state和dispatch，將state和經過dispatch加工的action建立函數到元件上，在state變化時重新render元件。
