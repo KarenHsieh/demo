@@ -1,3 +1,5 @@
+import { useSelector, useDispatch } from 'react-redux'
+import * as FilterAction from 'redux/actions'
 
 import ProductCard from '../../components/list/ProductCard'
 import OtherCard from '../../components/list/OtherCard'
@@ -11,19 +13,10 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
-// import MenuIcon from '@material-ui/icons/Menu';
 import Pagination from '@material-ui/lab/Pagination';
 
 import tempProduct from './temp'
 
-
-/* 
-// 相對路徑 & 絕對路徑
-import path from 'path'
-const resultPath = path.join(process.cwd(), 'results')
-const fullPath = path.join(resultPath, 'temp.json')
-console.log('fullPath = ' + fullPath); 
-*/
 
 const useStyles = makeStyles({
   root: {
@@ -40,6 +33,7 @@ const useStyles = makeStyles({
 });
 
 function Results() {
+  
   const classes = useStyles();
 
   const list = tempProduct.prodList.map(function(item){

@@ -31,7 +31,8 @@ function Area() {
   const classes = useStyles();
 
   const handleClick = (event) => {
-    event.preventDefault();
+    console.log(event.target.value);
+    // event.preventDefault();
   }
 
   return (
